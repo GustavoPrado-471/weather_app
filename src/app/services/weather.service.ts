@@ -23,7 +23,6 @@ export class WeatherService {
       headers: new HttpHeaders()
         .set(this.XRapidAPIHostHeaderName, this.XRapidAPIHostHeaderValue)
         .set(this.XRapidAPIKeyHeaderName, this.XRapidAPIKeyHeaderValue),
-      // params: new HttpParams().set('/', cityName),
     });
   }
 }

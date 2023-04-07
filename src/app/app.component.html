@@ -1,6 +1,82 @@
 <!-- Como solo es una pantalla, colocamos la interfaz aqui -->
 
-<div class="container">
+<!-- Barra de busqueda para una ciudad -->
+
+<div class="search">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input
+      type="text"
+      placeholder="Write city name"
+      name="city"
+      [(ngModel)]="cityName"
+    />
+  </form>
+</div>
+<!-- Colocamos todos los datos que consumimos de la API -->
+<div class="container" *ngIf="weatherData">
+  <div class="upper-data">
+    <img
+      src="../assets/hotClime.png"
+      alt="hotClime"
+      *ngIf="weatherData.main.temp > 15"
+    />
+    <img
+      src="../assets//frozenClime.png"
+      alt="frozenClime"
+      *ngIf="weatherData.main.temp <= 15"
+    />
+
+    <div class="weather-data">
+      <div class="location">{{ weatherData.name }}</div>
+      <div class="temperature">
+        {{ weatherData.main.temp | number : "1.0-0" }}°F
+      </div>
+    </div>
+  </div>
+
+  <div class="lower-data">
+    <div class="more-info-label">More information</div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/water-temperature.png" alt="coldImage" />
+          <span>min</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.temp_min | number : "1.0-0" }}°F
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/weather-forecast.png" alt="coldImage" />
+          <span>max</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.temp_max | number : "1.0-0" }}°F
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/weather-forecast term.png" alt="coldImage" />
+          <span>Humidity</span>
+        </div>
+        <div class="info-block-value">{{ weatherData.main.humidity }}%</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/viento.png" alt="coldImage" />
+          <span>Wind</span>
+        </div>
+        <div class="info-block-value">{{ weatherData.wind.speed }} Km</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
   <div class="upper-data">
     <img src="../assets/hotClime.png" alt="hotClime" *ngIf="14 > 15" />
     <img src="../assets//frozenClime.png" alt="frozenClime" *ngIf="14 <= 15" />
@@ -48,6 +124,6 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <router-outlet></router-outlet>

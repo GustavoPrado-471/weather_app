@@ -57,7 +57,7 @@ body {
 
 //Adjust flex position of lower data
 
-.lower-data{
+.lower-data {
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -112,13 +112,13 @@ body {
   flex-wrap: wrap;
 }
 
-.info-block{
+.info-block {
   width: 50%;
   display: flex;
   flex-direction: row;
 }
 
-.info-block-label{
+.info-block-label {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -126,19 +126,36 @@ body {
   align-items: center;
 }
 
-.info-block-label img{
+.info-block-label img {
   width: 1em;
 }
 
-.info-block-label span{
+.info-block-label span {
   color: var(--white);
   font-size: 0.8em;
 }
 
-.info-block-value{
+.info-block-value {
   width: 50%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   color: var(--white);
+}
+
+//Estilos para la barra de busqueda
+.search {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.search input {
+  background-color: var(--shodow-light);
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  padding: 1em;
+  color: var(--grey-1);
+  font-size: 0.8em;
+  text-align: center;
 }
