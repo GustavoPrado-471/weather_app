@@ -1,8 +1,7 @@
 <!-- Como solo es una pantalla, colocamos la interfaz aqui -->
-
 <!-- Barra de busqueda para una ciudad -->
 
-<div class="search">
+<div class="search" *ngIf="weatherData">
   <form #form="ngForm" (submit)="onSubmit()">
     <input
       type="text"
@@ -76,7 +75,14 @@
   </div>
 </div>
 
-<!-- <div class="container">
+<!-- En caso de que no se pueda consumir la API publica -->
+<div class="search" *ngIf="!weatherData">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input type="text" placeholder="API ISN'T RESPONDING" disabled="true" />
+  </form>
+</div>
+<!-- Colocamos datos estaticos si no responde la API -->
+<div class="container" *ngIf="!weatherData">
   <div class="upper-data">
     <img src="../assets/hotClime.png" alt="hotClime" *ngIf="14 > 15" />
     <img src="../assets//frozenClime.png" alt="frozenClime" *ngIf="14 <= 15" />
@@ -90,7 +96,6 @@
   <div class="lower-data">
     <div class="more-info-label">More information</div>
     <div class="more-info-container">
-
       <div class="info-block">
         <div class="info-block-label">
           <img src="../assets/water-temperature.png" alt="coldImage" />
@@ -124,6 +129,6 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 <router-outlet></router-outlet>
